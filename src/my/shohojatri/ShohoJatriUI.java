@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,6 +27,8 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     public ShohoJatriUI() {
         initComponents();
     }
+    
+    //jPanel2.setSelectedIndex(0);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,27 +39,32 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        homePage = new javax.swing.JPanel();
         HomeSignIn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         HomeSignUp = new javax.swing.JButton();
         HomeExit = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        signUp = new javax.swing.JPanel();
         UserSignUpBtn = new javax.swing.JButton();
         RiderSignUpBtn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        RiderSignInBtn = new javax.swing.JButton();
+        back1 = new javax.swing.JButton();
+        signIn = new javax.swing.JPanel();
+        userSignInBtn = new javax.swing.JButton();
         AdminSignInBtn = new javax.swing.JButton();
-        UserSignInBtn = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        back = new javax.swing.JButton();
+        RiderSignInBtn1 = new javax.swing.JButton();
+        userSignUpPage = new javax.swing.JPanel();
         UserSignUpConfirmBtn = new javax.swing.JButton();
         UserFullNameReg = new javax.swing.JTextField();
         UserMobileReg = new javax.swing.JTextField();
         UserUsernameReg = new javax.swing.JTextField();
         UserPassReg = new javax.swing.JPasswordField();
         ShowUserPassSignUp = new javax.swing.JCheckBox();
-        jPanel5 = new javax.swing.JPanel();
+        back2 = new javax.swing.JButton();
+        riderSignUpPage = new javax.swing.JPanel();
         RiderFullNameReg = new javax.swing.JTextField();
         RiderUsernameReg = new javax.swing.JTextField();
         RiderPassReg = new javax.swing.JPasswordField();
@@ -64,150 +73,245 @@ public class ShohoJatriUI extends javax.swing.JFrame {
         RiderVehicleReg = new javax.swing.JTextField();
         RiderAddressReg = new javax.swing.JTextField();
         ShowRiderPassSignUp = new javax.swing.JCheckBox();
-        jPanel6 = new javax.swing.JPanel();
-        RequestRide = new javax.swing.JButton();
-        HistoryUser = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        AcceptRide = new javax.swing.JButton();
-        RiderHistory = new javax.swing.JButton();
-        Account = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        SeeUsers = new javax.swing.JButton();
-        SeeRiders = new javax.swing.JButton();
-        AcceptRiders = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel10 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel11 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jPanel12 = new javax.swing.JPanel();
+        back3 = new javax.swing.JButton();
+        userSignInPage = new javax.swing.JPanel();
         UsernameSignIn = new javax.swing.JTextField();
         UserPassSignIn = new javax.swing.JPasswordField();
         UserSignIn = new javax.swing.JButton();
         ShowUserPassSignIn = new javax.swing.JCheckBox();
-        jPanel13 = new javax.swing.JPanel();
+        back4 = new javax.swing.JButton();
+        riderSignInPage = new javax.swing.JPanel();
         RidernameSignIn = new javax.swing.JTextField();
         RiderPassSignIn = new javax.swing.JPasswordField();
         ShowRiderPassSignIn = new javax.swing.JCheckBox();
         RiderSignIn = new javax.swing.JButton();
-        jPanel14 = new javax.swing.JPanel();
+        back5 = new javax.swing.JButton();
+        adminSignInPage = new javax.swing.JPanel();
         AdminnameSignIn = new javax.swing.JTextField();
         AdminPassSignIn = new javax.swing.JPasswordField();
         ShowAdminPassSignIn = new javax.swing.JCheckBox();
         AdminSignIn = new javax.swing.JButton();
+        back6 = new javax.swing.JButton();
+        userPortal = new javax.swing.JPanel();
+        RequestRide = new javax.swing.JButton();
+        HistoryUser = new javax.swing.JButton();
+        back7 = new javax.swing.JButton();
+        riderPortal = new javax.swing.JPanel();
+        AcceptRide = new javax.swing.JButton();
+        RiderHistory = new javax.swing.JButton();
+        back8 = new javax.swing.JButton();
+        adminPortal = new javax.swing.JPanel();
+        SeeUsers = new javax.swing.JButton();
+        SeeRiders = new javax.swing.JButton();
+        AcceptRiders = new javax.swing.JButton();
+        back9 = new javax.swing.JButton();
+        riderListPage = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        back10 = new javax.swing.JButton();
+        userListPage = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        back11 = new javax.swing.JButton();
+        acceptRiderReq = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        back12 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        bookRide = new javax.swing.JPanel();
+        currentLocValues = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        desLocValues = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        totalFare = new javax.swing.JLabel();
+        confirmReqBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        userHistory = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        back13 = new javax.swing.JButton();
+        riderHistory = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        back14 = new javax.swing.JButton();
+        seeAcceptance = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        seeRideReq = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        acceptRide = new javax.swing.JButton();
+        back15 = new javax.swing.JButton();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel15.setMinimumSize(new java.awt.Dimension(700, 500));
+        jPanel15.setPreferredSize(new java.awt.Dimension(760, 550));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel17.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel17.setPreferredSize(new java.awt.Dimension(760, 100));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+
+        jPanel15.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 810, 90));
+
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(700, 500));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(760, 550));
+
+        homePage.setBackground(new java.awt.Color(0, 102, 102));
+        homePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        HomeSignIn.setBackground(new java.awt.Color(204, 255, 255));
+        HomeSignIn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
         HomeSignIn.setText("Sign In");
         HomeSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeSignInActionPerformed(evt);
             }
         });
-        jPanel2.add(HomeSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
+        homePage.add(HomeSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 140, 60));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Home");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 132, 45));
-
+        HomeSignUp.setBackground(new java.awt.Color(204, 255, 255));
+        HomeSignUp.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
         HomeSignUp.setText("Sign Up");
         HomeSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeSignUpActionPerformed(evt);
             }
         });
-        jPanel2.add(HomeSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        homePage.add(HomeSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 140, 60));
 
+        HomeExit.setBackground(new java.awt.Color(204, 255, 255));
+        HomeExit.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
         HomeExit.setText("Exit");
         HomeExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeExitActionPerformed(evt);
             }
         });
-        jPanel2.add(HomeExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
+        homePage.add(HomeExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 140, 60));
 
-        jTabbedPane1.addTab("Home", jPanel2);
+        jTabbedPane1.addTab("Home", homePage);
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        signUp.setBackground(new java.awt.Color(0, 102, 102));
+        signUp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        UserSignUpBtn.setBackground(new java.awt.Color(204, 255, 255));
+        UserSignUpBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         UserSignUpBtn.setText("User Sign Up");
         UserSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserSignUpBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(UserSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 170, -1, -1));
+        signUp.add(UserSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 130, 60));
 
+        RiderSignUpBtn.setBackground(new java.awt.Color(204, 255, 255));
+        RiderSignUpBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RiderSignUpBtn.setText("Rider Sign Up");
         RiderSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RiderSignUpBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(RiderSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 211, -1, -1));
+        signUp.add(RiderSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 130, 60));
 
-        jTabbedPane1.addTab("Sign Up", jPanel3);
-
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        RiderSignInBtn.setText("Rider Sign In");
-        RiderSignInBtn.addActionListener(new java.awt.event.ActionListener() {
+        back1.setBackground(new java.awt.Color(204, 255, 255));
+        back1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back1.setText("Back");
+        back1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RiderSignInBtnActionPerformed(evt);
+                back1ActionPerformed(evt);
             }
         });
-        jPanel1.add(RiderSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 176, -1, -1));
+        signUp.add(back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 130, 60));
 
+        jTabbedPane1.addTab("Sign Up", signUp);
+
+        signIn.setBackground(new java.awt.Color(0, 102, 102));
+        signIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userSignInBtn.setBackground(new java.awt.Color(204, 255, 255));
+        userSignInBtn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        userSignInBtn.setText("User Sign In");
+        userSignInBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userSignInBtnActionPerformed(evt);
+            }
+        });
+        signIn.add(userSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 180, 60));
+
+        AdminSignInBtn.setBackground(new java.awt.Color(204, 255, 255));
+        AdminSignInBtn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
         AdminSignInBtn.setText("Admin Sign In");
         AdminSignInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminSignInBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(AdminSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        signIn.add(AdminSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 180, 60));
 
-        UserSignInBtn.setText("User Sign In");
-        UserSignInBtn.addActionListener(new java.awt.event.ActionListener() {
+        back.setBackground(new java.awt.Color(204, 255, 255));
+        back.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserSignInBtnActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
-        jPanel1.add(UserSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 147, -1, -1));
+        signIn.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 140, 60));
 
-        jTabbedPane1.addTab("Sign In", jPanel1);
+        RiderSignInBtn1.setBackground(new java.awt.Color(204, 255, 255));
+        RiderSignInBtn1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        RiderSignInBtn1.setText("Rider Sign In");
+        RiderSignInBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RiderSignInBtn1ActionPerformed(evt);
+            }
+        });
+        signIn.add(RiderSignInBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 180, 60));
 
-        jPanel4.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Sign In", signIn);
 
+        userSignUpPage.setBackground(new java.awt.Color(0, 102, 102));
+        userSignUpPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        UserSignUpConfirmBtn.setBackground(new java.awt.Color(204, 255, 255));
         UserSignUpConfirmBtn.setText("Sign Up");
         UserSignUpConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserSignUpConfirmBtnActionPerformed(evt);
             }
         });
-        jPanel4.add(UserSignUpConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 301, -1, -1));
+        userSignUpPage.add(UserSignUpConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, 40));
 
         UserFullNameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Full Name"));
-        jPanel4.add(UserFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 43, 217, 48));
+        userSignUpPage.add(UserFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 217, 70));
 
         UserMobileReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Mobile No."));
-        jPanel4.add(UserMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 217, 48));
+        userSignUpPage.add(UserMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 217, 70));
 
         UserUsernameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        jPanel4.add(UserUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 97, 217, 48));
+        userSignUpPage.add(UserUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 217, 70));
 
         UserPassReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        jPanel4.add(UserPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 217, 50));
+        userSignUpPage.add(UserPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 217, 70));
 
         ShowUserPassSignUp.setText("Show Password");
         ShowUserPassSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -215,18 +319,28 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 ShowUserPassSignUpActionPerformed(evt);
             }
         });
-        jPanel4.add(ShowUserPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
+        userSignUpPage.add(ShowUserPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
 
-        jTabbedPane1.addTab("User Sign Up", jPanel4);
+        back2.setBackground(new java.awt.Color(204, 255, 255));
+        back2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back2.setText("Back");
+        back2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back2ActionPerformed(evt);
+            }
+        });
+        userSignUpPage.add(back2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 80, 40));
 
-        jPanel5.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("User Sign Up", userSignUpPage);
+
+        riderSignUpPage.setBackground(new java.awt.Color(0, 102, 102));
+        riderSignUpPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RiderFullNameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Full Name"));
-        jPanel5.add(RiderFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 217, 50));
+        riderSignUpPage.add(RiderFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 217, 70));
 
         RiderUsernameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        jPanel5.add(RiderUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 217, -1));
+        riderSignUpPage.add(RiderUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 217, 70));
 
         RiderPassReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
         RiderPassReg.addActionListener(new java.awt.event.ActionListener() {
@@ -234,24 +348,26 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 RiderPassRegActionPerformed(evt);
             }
         });
-        jPanel5.add(RiderPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 217, 50));
+        riderSignUpPage.add(RiderPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 217, 70));
 
         RiderMobileReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Mobile No."));
-        jPanel5.add(RiderMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 217, 48));
+        riderSignUpPage.add(RiderMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 217, 70));
 
+        RiderSignUpBtnReg.setBackground(new java.awt.Color(204, 255, 255));
+        RiderSignUpBtnReg.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         RiderSignUpBtnReg.setText("Sign Up");
         RiderSignUpBtnReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RiderSignUpBtnRegActionPerformed(evt);
             }
         });
-        jPanel5.add(RiderSignUpBtnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, -1, -1));
+        riderSignUpPage.add(RiderSignUpBtnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, 40));
 
         RiderVehicleReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Vehicle Type"));
-        jPanel5.add(RiderVehicleReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 217, 48));
+        riderSignUpPage.add(RiderVehicleReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 217, 70));
 
         RiderAddressReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Address"));
-        jPanel5.add(RiderAddressReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 217, 48));
+        riderSignUpPage.add(RiderAddressReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 217, 70));
 
         ShowRiderPassSignUp.setText("Show Password");
         ShowRiderPassSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -259,108 +375,269 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 ShowRiderPassSignUpActionPerformed(evt);
             }
         });
-        jPanel5.add(ShowRiderPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, -1, -1));
+        riderSignUpPage.add(ShowRiderPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
 
-        jTabbedPane1.addTab("Rider Sign Up", jPanel5);
+        back3.setBackground(new java.awt.Color(204, 255, 255));
+        back3.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back3.setText("Back");
+        back3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back3ActionPerformed(evt);
+            }
+        });
+        riderSignUpPage.add(back3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 80, 40));
 
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Rider Sign Up", riderSignUpPage);
 
+        userSignInPage.setBackground(new java.awt.Color(0, 102, 102));
+        userSignInPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        UsernameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
+        userSignInPage.add(UsernameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 190, 70));
+
+        UserPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
+        UserPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserPassSignInActionPerformed(evt);
+            }
+        });
+        userSignInPage.add(UserPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 190, 70));
+
+        UserSignIn.setBackground(new java.awt.Color(204, 255, 255));
+        UserSignIn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        UserSignIn.setText("Sign In");
+        UserSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserSignInActionPerformed(evt);
+            }
+        });
+        userSignInPage.add(UserSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, 30));
+
+        ShowUserPassSignIn.setText("Show Password");
+        ShowUserPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowUserPassSignInActionPerformed(evt);
+            }
+        });
+        userSignInPage.add(ShowUserPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
+
+        back4.setBackground(new java.awt.Color(204, 255, 255));
+        back4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back4.setText("Back");
+        back4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back4ActionPerformed(evt);
+            }
+        });
+        userSignInPage.add(back4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 80, 30));
+
+        jTabbedPane1.addTab("UserSignIn", userSignInPage);
+
+        riderSignInPage.setBackground(new java.awt.Color(0, 102, 102));
+        riderSignInPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RidernameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
+        riderSignInPage.add(RidernameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 200, 70));
+
+        RiderPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
+        RiderPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RiderPassSignInActionPerformed(evt);
+            }
+        });
+        riderSignInPage.add(RiderPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 200, 70));
+
+        ShowRiderPassSignIn.setText("Show Password");
+        ShowRiderPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowRiderPassSignInActionPerformed(evt);
+            }
+        });
+        riderSignInPage.add(ShowRiderPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
+
+        RiderSignIn.setBackground(new java.awt.Color(204, 255, 255));
+        RiderSignIn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        RiderSignIn.setText("Sign In");
+        RiderSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RiderSignInActionPerformed(evt);
+            }
+        });
+        riderSignInPage.add(RiderSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 80, 30));
+
+        back5.setBackground(new java.awt.Color(204, 255, 255));
+        back5.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back5.setText("Back");
+        back5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back5ActionPerformed(evt);
+            }
+        });
+        riderSignInPage.add(back5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 80, 30));
+
+        jTabbedPane1.addTab("RiderSignIn", riderSignInPage);
+
+        adminSignInPage.setBackground(new java.awt.Color(0, 102, 102));
+        adminSignInPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AdminnameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Nickname"));
+        adminSignInPage.add(AdminnameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 200, 70));
+
+        AdminPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
+        AdminPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminPassSignInActionPerformed(evt);
+            }
+        });
+        adminSignInPage.add(AdminPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 200, 70));
+
+        ShowAdminPassSignIn.setText("Show Password");
+        ShowAdminPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowAdminPassSignInActionPerformed(evt);
+            }
+        });
+        adminSignInPage.add(ShowAdminPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
+
+        AdminSignIn.setBackground(new java.awt.Color(204, 255, 255));
+        AdminSignIn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        AdminSignIn.setText("Sign In");
+        AdminSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminSignInActionPerformed(evt);
+            }
+        });
+        adminSignInPage.add(AdminSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 90, 30));
+
+        back6.setBackground(new java.awt.Color(204, 255, 255));
+        back6.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back6.setText("Back");
+        back6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back6ActionPerformed(evt);
+            }
+        });
+        adminSignInPage.add(back6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 90, 30));
+
+        jTabbedPane1.addTab("AdminSignIn", adminSignInPage);
+
+        userPortal.setBackground(new java.awt.Color(0, 102, 102));
+        userPortal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RequestRide.setBackground(new java.awt.Color(204, 255, 255));
+        RequestRide.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         RequestRide.setText("Request a ride");
-        jPanel6.add(RequestRide, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 114, -1, -1));
+        RequestRide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RequestRideActionPerformed(evt);
+            }
+        });
+        userPortal.add(RequestRide, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 140, 60));
 
+        HistoryUser.setBackground(new java.awt.Color(204, 255, 255));
+        HistoryUser.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         HistoryUser.setText("See history");
-        jPanel6.add(HistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        HistoryUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistoryUserActionPerformed(evt);
+            }
+        });
+        userPortal.add(HistoryUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 140, 60));
 
-        jTabbedPane1.addTab("User Portal", jPanel6);
+        back7.setBackground(new java.awt.Color(204, 255, 255));
+        back7.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back7.setText("Back");
+        back7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back7ActionPerformed(evt);
+            }
+        });
+        userPortal.add(back7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 140, 60));
 
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("User Portal", userPortal);
 
+        riderPortal.setBackground(new java.awt.Color(0, 102, 102));
+        riderPortal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AcceptRide.setBackground(new java.awt.Color(204, 255, 255));
+        AcceptRide.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         AcceptRide.setText("Accept a ride");
-        jPanel7.add(AcceptRide, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+        AcceptRide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AcceptRideActionPerformed(evt);
+            }
+        });
+        riderPortal.add(AcceptRide, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 140, 60));
 
+        RiderHistory.setBackground(new java.awt.Color(204, 255, 255));
+        RiderHistory.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         RiderHistory.setText("See history");
         RiderHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RiderHistoryActionPerformed(evt);
             }
         });
-        jPanel7.add(RiderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
+        riderPortal.add(RiderHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 140, 60));
 
-        Account.setText("Account");
-        jPanel7.add(Account, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+        back8.setBackground(new java.awt.Color(204, 255, 255));
+        back8.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back8.setText("Back");
+        back8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back8ActionPerformed(evt);
+            }
+        });
+        riderPortal.add(back8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 140, 60));
 
-        jTabbedPane1.addTab("Rider Portal", jPanel7);
+        jTabbedPane1.addTab("Rider Portal", riderPortal);
 
-        jPanel8.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        adminPortal.setBackground(new java.awt.Color(0, 102, 102));
+        adminPortal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        SeeUsers.setBackground(new java.awt.Color(204, 255, 255));
+        SeeUsers.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         SeeUsers.setText("See Users");
         SeeUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeeUsersActionPerformed(evt);
             }
         });
-        jPanel8.add(SeeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 95, -1, -1));
+        adminPortal.add(SeeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 120, 40));
 
+        SeeRiders.setBackground(new java.awt.Color(204, 255, 255));
+        SeeRiders.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         SeeRiders.setText("See Riders");
         SeeRiders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeeRidersActionPerformed(evt);
             }
         });
-        jPanel8.add(SeeRiders, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 124, -1, -1));
+        adminPortal.add(SeeRiders, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 120, 40));
 
+        AcceptRiders.setBackground(new java.awt.Color(204, 255, 255));
+        AcceptRiders.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
         AcceptRiders.setText("Accept new rider");
         AcceptRiders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AcceptRidersActionPerformed(evt);
             }
         });
-        jPanel8.add(AcceptRiders, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        adminPortal.add(AcceptRiders, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 140, 40));
 
-        jTabbedPane1.addTab("Admin Portal", jPanel8);
-
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setBackground(new java.awt.Color(0, 102, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Full Name", "Username", "Mobile No.", "Vehicle Type", "Address", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        back9.setBackground(new java.awt.Color(204, 255, 255));
+        back9.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back9.setText("Back");
+        back9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back9ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Vehicle Type");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Address");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("Status");
-        }
+        adminPortal.add(back9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 120, 40));
 
-        jPanel9.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 460));
+        jTabbedPane1.addTab("Admin Portal", adminPortal);
 
-        jTabbedPane1.addTab("AcceptApps", jPanel9);
-
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        riderListPage.setBackground(new java.awt.Color(0, 102, 102));
+        riderListPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable2.setBackground(new java.awt.Color(0, 102, 102));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -396,11 +673,22 @@ public class ShohoJatriUI extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(5).setHeaderValue("Status");
         }
 
-        jPanel10.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 460));
+        riderListPage.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 760, 330));
 
-        jTabbedPane1.addTab("Riders", jPanel10);
+        back10.setBackground(new java.awt.Color(51, 255, 153));
+        back10.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back10.setText("Back");
+        back10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back10ActionPerformed(evt);
+            }
+        });
+        riderListPage.add(back10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 140, 30));
 
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Riders", riderListPage);
+
+        userListPage.setBackground(new java.awt.Color(0, 102, 102));
+        userListPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable3.setBackground(new java.awt.Color(0, 102, 102));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -431,130 +719,796 @@ public class ShohoJatriUI extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanel11.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 460));
+        userListPage.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 760, 320));
 
-        jTabbedPane1.addTab("Users", jPanel11);
-
-        jPanel12.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        UsernameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        jPanel12.add(UsernameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 96, 190, 50));
-
-        UserPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        UserPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        back11.setBackground(new java.awt.Color(51, 255, 153));
+        back11.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back11.setText("Back");
+        back11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserPassSignInActionPerformed(evt);
+                back11ActionPerformed(evt);
             }
         });
-        jPanel12.add(UserPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 190, 50));
+        userListPage.add(back11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 140, 30));
 
-        UserSignIn.setText("Sign In");
-        UserSignIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserSignInActionPerformed(evt);
+        jTabbedPane1.addTab("Users", userListPage);
+
+        acceptRiderReq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setBackground(new java.awt.Color(0, 102, 102));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Full Name", "Username", "Mobile No.", "Vehicle Type", "Address", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanel12.add(UserSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(3).setHeaderValue("Vehicle Type");
+            jTable1.getColumnModel().getColumn(4).setHeaderValue("Address");
+            jTable1.getColumnModel().getColumn(5).setHeaderValue("Status");
+        }
 
-        ShowUserPassSignIn.setText("Show Password");
-        ShowUserPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        acceptRiderReq.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 390));
+
+        back12.setBackground(new java.awt.Color(204, 255, 255));
+        back12.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back12.setText("Back");
+        back12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowUserPassSignInActionPerformed(evt);
+                back12ActionPerformed(evt);
             }
         });
-        jPanel12.add(ShowUserPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
+        acceptRiderReq.add(back12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 140, 40));
 
-        jTabbedPane1.addTab("UserSignIn", jPanel12);
-
-        jPanel13.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        RidernameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        jPanel13.add(RidernameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 200, 60));
-
-        RiderPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        RiderPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
+        jButton1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jButton1.setText("Accept Rider Request");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RiderPassSignInActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel13.add(RiderPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 200, 60));
+        acceptRiderReq.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 210, 40));
 
-        ShowRiderPassSignIn.setText("Show Password");
-        ShowRiderPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        jTabbedPane1.addTab("AcceptApps", acceptRiderReq);
+
+        bookRide.setBackground(new java.awt.Color(0, 102, 102));
+        bookRide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        currentLocValues.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boropol", "Agrabad", "Tigerpass", "GEC", "AK Khan", "2 No Gate", "Muradpur", "Bohoddarhat", "Notun Bridge" }));
+        currentLocValues.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowRiderPassSignInActionPerformed(evt);
+                currentLocValuesActionPerformed(evt);
             }
         });
-        jPanel13.add(ShowRiderPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+        bookRide.add(currentLocValues, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 140, -1));
 
-        RiderSignIn.setText("Sign In");
-        RiderSignIn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Select current location");
+        bookRide.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 180, 40));
+
+        jLabel3.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Select destination");
+        bookRide.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, 40));
+
+        desLocValues.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boropol", "Agrabad", "Tigerpass", "GEC", "AK Khan", "2 No Gate", "Muradpur", "Bohoddarhat", "Notun Bridge" }));
+        desLocValues.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RiderSignInActionPerformed(evt);
+                desLocValuesActionPerformed(evt);
             }
         });
-        jPanel13.add(RiderSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+        bookRide.add(desLocValues, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 140, -1));
 
-        jTabbedPane1.addTab("RiderSignIn", jPanel13);
+        jLabel4.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Total fare");
+        bookRide.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
-        jPanel14.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        totalFare.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        totalFare.setForeground(new java.awt.Color(255, 255, 255));
+        totalFare.setText("0");
+        bookRide.add(totalFare, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 30, -1));
 
-        AdminnameSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Nickname"));
-        jPanel14.add(AdminnameSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 200, 60));
-
-        AdminPassSignIn.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        AdminPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        confirmReqBtn.setBackground(new java.awt.Color(204, 255, 255));
+        confirmReqBtn.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        confirmReqBtn.setText("Confirm request");
+        confirmReqBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminPassSignInActionPerformed(evt);
+                confirmReqBtnActionPerformed(evt);
             }
         });
-        jPanel14.add(AdminPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 200, 60));
+        bookRide.add(confirmReqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 243, 160, 40));
 
-        ShowAdminPassSignIn.setText("Show Password");
-        ShowAdminPassSignIn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("TK");
+        bookRide.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, -1, -1));
+
+        jTabbedPane1.addTab("bookRide", bookRide);
+
+        userHistory.setBackground(new java.awt.Color(0, 102, 102));
+        userHistory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Username", "Rider name", "Pick Up Point", "Destination", "Fare"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        userHistory.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 42, 687, 335));
+
+        back13.setBackground(new java.awt.Color(51, 255, 153));
+        back13.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back13.setText("Back");
+        back13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowAdminPassSignInActionPerformed(evt);
+                back13ActionPerformed(evt);
             }
         });
-        jPanel14.add(ShowAdminPassSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
+        userHistory.add(back13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 140, 30));
 
-        AdminSignIn.setText("Sign In");
-        AdminSignIn.addActionListener(new java.awt.event.ActionListener() {
+        jTabbedPane1.addTab("userHistory", userHistory);
+
+        riderHistory.setBackground(new java.awt.Color(0, 102, 102));
+        riderHistory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Username", "Rider name", "Pick Up Point", "Destination", "Fare"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable6);
+        if (jTable6.getColumnModel().getColumnCount() > 0) {
+            jTable6.getColumnModel().getColumn(3).setResizable(false);
+            jTable6.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        riderHistory.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 730, 310));
+
+        back14.setBackground(new java.awt.Color(51, 255, 153));
+        back14.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back14.setText("Back");
+        back14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminSignInActionPerformed(evt);
+                back14ActionPerformed(evt);
             }
         });
-        jPanel14.add(AdminSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+        riderHistory.add(back14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 140, 30));
 
-        jTabbedPane1.addTab("AdminSignIn", jPanel14);
+        jTabbedPane1.addTab("riderHistory", riderHistory);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(249, 249, 249)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+        seeAcceptance.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel6.setText("ridername");
+
+        jLabel7.setText("riderMobile");
+
+        jLabel8.setText("Status");
+
+        javax.swing.GroupLayout seeAcceptanceLayout = new javax.swing.GroupLayout(seeAcceptance);
+        seeAcceptance.setLayout(seeAcceptanceLayout);
+        seeAcceptanceLayout.setHorizontalGroup(
+            seeAcceptanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(seeAcceptanceLayout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(jLabel6)
+                .addGap(96, 96, 96)
+                .addComponent(jLabel7)
+                .addGap(132, 132, 132)
+                .addComponent(jLabel8)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addGap(54, 54, 54))
+        seeAcceptanceLayout.setVerticalGroup(
+            seeAcceptanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(seeAcceptanceLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addGroup(seeAcceptanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.addTab("acceptance", seeAcceptance);
+
+        seeRideReq.setBackground(new java.awt.Color(0, 102, 102));
+        seeRideReq.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "username", "Pick Up Location", "Destination", "Fare"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        seeRideReq.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 720, 324));
+
+        acceptRide.setBackground(new java.awt.Color(204, 255, 255));
+        acceptRide.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 14)); // NOI18N
+        acceptRide.setText("Accept Request");
+        acceptRide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptRideActionPerformed(evt);
+            }
+        });
+        seeRideReq.add(acceptRide, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 380, 130, 30));
+
+        back15.setBackground(new java.awt.Color(204, 255, 255));
+        back15.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        back15.setText("Back");
+        back15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back15ActionPerformed(evt);
+            }
+        });
+        seeRideReq.add(back15, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 140, 30));
+
+        jTabbedPane1.addTab("seeRideReq", seeRideReq);
+
+        jPanel15.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 550));
+
+        getContentPane().add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 550));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AdminSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSignInActionPerformed
+        // TODO add your handling code here:
+
+        String uname = AdminnameSignIn.getText();
+        char[] passChar = AdminPassSignIn.getPassword();
+        String pass = new String(passChar);
+
+        Connection con = getConnection();
+        String query = "SELECT * FROM admins WHERE username = ? AND password = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, uname);
+            ps.setString(2, pass);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                // Sign in successful
+                JOptionPane.showMessageDialog(null, "Sign in successful!");
+                AdminnameSignIn.setText("");
+                AdminPassSignIn.setText("");
+                // Add the index for the user panel
+            } else {
+                // Sign in failed
+                JOptionPane.showMessageDialog(null, "Invalid username or password.");
+            }
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_AdminSignInActionPerformed
+
+    private void ShowAdminPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAdminPassSignInActionPerformed
+        // TODO add your handling code here:
+
+        if (ShowAdminPassSignIn.isSelected()) {
+            AdminPassSignIn.setEchoChar((char)0);
+        }
+        else {
+            AdminPassSignIn.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_ShowAdminPassSignInActionPerformed
+
+    private void AdminPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPassSignInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminPassSignInActionPerformed
+    String rname;
+    private void RiderSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignInActionPerformed
+        // TODO add your handling code here:
+
+        rname = RidernameSignIn.getText();
+        char[] passChar = RiderPassSignIn.getPassword();
+        String pass = new String(passChar);
+
+        Connection con = getConnection();
+        String query = "SELECT * FROM ridersapp WHERE username = ? AND password = ? AND accept = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, rname);
+            ps.setString(2, pass);
+            ps.setString(3, "yes");
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                // Sign in successful
+                JOptionPane.showMessageDialog(null, "Sign in successful!");
+                RidernameSignIn.setText("");
+                RiderPassSignIn.setText("");
+                // Add the index for the rider panel
+            } else {
+                // Sign in failed
+                JOptionPane.showMessageDialog(null, "Invalid username or password.");
+            }
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_RiderSignInActionPerformed
+
+    private void ShowRiderPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRiderPassSignInActionPerformed
+        // TODO add your handling code here:
+        if (ShowRiderPassSignIn.isSelected()) {
+            RiderPassSignIn.setEchoChar((char)0);
+        }
+        else {
+            RiderPassSignIn.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ShowRiderPassSignInActionPerformed
+
+    private void RiderPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderPassSignInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RiderPassSignInActionPerformed
+
+    private void ShowUserPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUserPassSignInActionPerformed
+        // TODO add your handling code here:
+
+        if(ShowUserPassSignIn.isSelected()){
+            UserPassSignIn.setEchoChar((char)0);
+        }
+        else{
+            UserPassSignIn.setEchoChar('*');
+        }
+
+    }//GEN-LAST:event_ShowUserPassSignInActionPerformed
+    String uname;
+    private void UserSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignInActionPerformed
+        // TODO add your handling code here:
+
+        uname = UsernameSignIn.getText();
+        char[] passChar = UserPassSignIn.getPassword();
+        String pass = new String(passChar);
+
+        Connection con = getConnection();
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, uname);
+            ps.setString(2, pass);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                // Sign in successful
+                JOptionPane.showMessageDialog(null, "Sign in successful!");
+                UsernameSignIn.setText("");
+                UserPassSignIn.setText("");
+                // Add the index for the user panel
+            } else {
+                // Sign in failed
+                JOptionPane.showMessageDialog(null, "Invalid username or password.");
+            }
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_UserSignInActionPerformed
+
+    private void UserPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPassSignInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserPassSignInActionPerformed
+
+    private void AcceptRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptRidersActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(13);
+        loadApplications();
+
+    }//GEN-LAST:event_AcceptRidersActionPerformed
+
+    private void SeeRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeRidersActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(11);
+        loadApplications2();
+    }//GEN-LAST:event_SeeRidersActionPerformed
+
+    private void SeeUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeUsersActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(12);
+        loadApplications3();
+    }//GEN-LAST:event_SeeUsersActionPerformed
+
+    private void RiderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderHistoryActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(16);
+        loadApplications6();
+    }//GEN-LAST:event_RiderHistoryActionPerformed
+
+    private void ShowRiderPassSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRiderPassSignUpActionPerformed
+        // TODO add your handling code here:
+        if (ShowRiderPassSignUp.isSelected()) {
+            RiderPassReg.setEchoChar((char)0);
+        }
+        else {
+            RiderPassReg.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ShowRiderPassSignUpActionPerformed
+
+    private void RiderSignUpBtnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignUpBtnRegActionPerformed
+        // TODO add your handling code here:
+        String name1 = RiderFullNameReg.getText();
+        String username1 = RiderUsernameReg.getText();
+        String mobile1 = RiderMobileReg.getText();
+        String vehicle1 = RiderVehicleReg.getText();
+        String address1 = RiderAddressReg.getText();
+        char[] passwordChar = RiderPassReg.getPassword();
+        String password1 = new String(passwordChar);
+
+        Connection con = getConnection();
+        String query = "INSERT INTO ridersapp(fullname, username, mobile, vehicle, address, password, accept) VALUES(?, ?, ?, ?, ?, ?, ?)";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, name1);
+            ps.setString(2, username1);
+            ps.setString(3, mobile1);
+            ps.setString(4, vehicle1);
+            ps.setString(5, address1);
+            ps.setString(6, password1);
+            ps.setString(7, "no");
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data inserted successfully!");
+            RiderFullNameReg.setText("");
+            RiderUsernameReg.setText("");
+            RiderMobileReg.setText("");
+            RiderVehicleReg.setText("");
+            RiderAddressReg.setText("");
+            RiderPassReg.setText("");
+
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        jTabbedPane1.setSelectedIndex(6);
+    }//GEN-LAST:event_RiderSignUpBtnRegActionPerformed
+
+    private void RiderPassRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderPassRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RiderPassRegActionPerformed
+
+    private void ShowUserPassSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUserPassSignUpActionPerformed
+        // TODO add your handling code here:
+        if(ShowUserPassSignUp.isSelected()){
+            UserPassReg.setEchoChar((char)0);
+        }
+        else{
+            UserPassReg.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ShowUserPassSignUpActionPerformed
+
+    private void UserSignUpConfirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignUpConfirmBtnActionPerformed
+        // TODO add your handling code here:
+        String name1 = UserFullNameReg.getText();
+        String username1 = UserUsernameReg.getText();
+        char[] passwordChar = UserPassReg.getPassword();
+        String password1 = new String(passwordChar);
+        String mobile1 = UserMobileReg.getText();
+
+        Connection con = getConnection();
+        String query = "INSERT INTO users(fullname, username, password, phone) VALUES(?, ?, ?, ?)";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, name1);
+            ps.setString(2, username1);
+            ps.setString(3, password1);
+            ps.setString(4, mobile1);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data inserted successfully!");
+
+            UserFullNameReg.setText("");
+            UserUsernameReg.setText("");
+            UserPassReg.setText("");
+            UserMobileReg.setText("");
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_UserSignUpConfirmBtnActionPerformed
+
+    private void AdminSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSignInBtnActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_AdminSignInBtnActionPerformed
+
+    private void userSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userSignInBtnActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_userSignInBtnActionPerformed
+
+    private void RiderSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignUpBtnActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_RiderSignUpBtnActionPerformed
+
+    private void UserSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignUpBtnActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_UserSignUpBtnActionPerformed
+
+    private void HomeExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_HomeExitActionPerformed
+
+    private void HomeSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSignUpActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_HomeSignUpActionPerformed
+
+    private void HomeSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSignInActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_HomeSignInActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void RiderSignInBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignInBtn1ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(6);
+    }//GEN-LAST:event_RiderSignInBtn1ActionPerformed
+
+    private void back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back1ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_back1ActionPerformed
+
+    private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back2ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_back2ActionPerformed
+
+    private void back3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back3ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_back3ActionPerformed
+
+    private void back4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back4ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_back4ActionPerformed
+
+    private void back5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back5ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_back5ActionPerformed
+
+    private void back6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back6ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_back6ActionPerformed
+
+    private void back7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back7ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_back7ActionPerformed
+
+    private void back8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back8ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_back8ActionPerformed
+
+    private void back9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back9ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_back9ActionPerformed
+
+    private void back10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back10ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_back10ActionPerformed
+
+    private void back11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back11ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_back11ActionPerformed
+
+    private void back12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back12ActionPerformed
+        // TODO add your handling code here:
+         jTabbedPane1.setSelectedIndex(10);
+    }//GEN-LAST:event_back12ActionPerformed
+    String [] locations = new String[]{ "Boropol", "Agrabad", "Tigerpass", "GEC", "AK Khan", "2 No Gate", "Muradpur", "Bohoddarhat", "Notun Bridge"};
+    int currentLocIndex;
+    String currentLoc;
+    int desLocIndex;
+    String desLoc;
+    int fare;
+    private void currentLocValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentLocValuesActionPerformed
+        
+        currentLocIndex = currentLocValues.getSelectedIndex();
+        //System.out.println(currentLocIndex);
+        currentLoc = locations[currentLocIndex];
+        //System.out.println(currentLoc);
+    }//GEN-LAST:event_currentLocValuesActionPerformed
+
+    private void desLocValuesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desLocValuesActionPerformed
+        
+        desLocIndex = desLocValues.getSelectedIndex();
+        //System.out.println(desLocIndex);
+        desLoc = locations[desLocIndex];
+        //System.out.println(desLoc);
+        fare = Math.abs(desLocIndex - currentLocIndex);
+        fare = 10*fare;
+        //System.out.println(fare);
+        String fareS = Integer.toString(fare);
+        //System.out.println(fareS);
+        totalFare.setText(fareS);
+        
+    }//GEN-LAST:event_desLocValuesActionPerformed
+
+    private void confirmReqBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReqBtnActionPerformed
+        // TODO add your handling code here:
+        Connection con = getConnection();
+        String query = "INSERT INTO rides(USERNAME, CURRENTLOC, DESLOC, FARE) VALUES(?, ?, ?, ?)";
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, uname);
+            System.out.println(uname);
+            ps.setString(2, currentLoc);
+            ps.setString(3, desLoc);
+            ps.setInt(4, fare);
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Request sent successfully!");
+
+        } catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_confirmReqBtnActionPerformed
+
+    private void AcceptRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptRideActionPerformed
+        // TODO add your handling code here:
+        loadApplications4();
+        jTabbedPane1.setSelectedIndex(18);
+    }//GEN-LAST:event_AcceptRideActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        Object value = jTable1.getValueAt(row, 0);
+        String name = value.toString();
+
+        Connection con = getConnection();
+
+        String query = "UPDATE ridersapp SET accept = 'yes' WHERE fullname = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, name);
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Rider Application Accepted!");
+        } catch (SQLException ex) {
+            Logger.getLogger(ShohoJatriUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RequestRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestRideActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(14);
+    }//GEN-LAST:event_RequestRideActionPerformed
+
+    private void HistoryUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoryUserActionPerformed
+        // TODO add your handling code here:
+
+        loadApplications5();
+        jTabbedPane1.setSelectedIndex(15);
+    }//GEN-LAST:event_HistoryUserActionPerformed
+
+    private void acceptRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptRideActionPerformed
+        // TODO add your handling code here:
+        int row = jTable4.getSelectedRow();
+        Object value1 = jTable4.getValueAt(row, 0);
+        String name = value1.toString();
+        Object value2 = jTable4.getValueAt(row, 1);
+        String pickUp = value2.toString();
+        Object value3 = jTable4.getValueAt(row, 2);
+        String destination = value3.toString();
+        Object value4 = jTable4.getValueAt(row, 3);
+        String faree = value4.toString();
+        int farei = Integer.parseInt(faree);
+
+        Connection con = getConnection();
+
+        String query = "INSERT INTO history(passengerName, riderName, PickUpLocation, destination, fare) VALUES(?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, rname);
+            ps.setString(3, pickUp);
+            ps.setString(4, destination);
+            ps.setInt(5, farei);
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Ride Accepted!");
+            
+            String queryd = "DELETE FROM rides where username = ?";
+            PreparedStatement psd = con.prepareStatement(queryd);
+            psd.setString(1, name);
+            psd.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ShohoJatriUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        jTabbedPane1.setSelectedIndex(9);
+        
+    }//GEN-LAST:event_acceptRideActionPerformed
+
+    private void back13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back13ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_back13ActionPerformed
+
+    private void back14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back14ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_back14ActionPerformed
+
+    private void back15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back15ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_back15ActionPerformed
     
     public Connection getConnection(){
     Connection con;
     try{
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bismillah", "root", "InAllahWeTrust114");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bismillah", "root", "12345");
         return con;
     } catch(SQLException e){
         return null;
@@ -645,306 +1599,93 @@ public class ShohoJatriUI extends javax.swing.JFrame {
 
     }
     
-    private void HomeSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSignInActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_HomeSignInActionPerformed
-
-    private void UserSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignUpBtnActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_UserSignUpBtnActionPerformed
-
-    private void HomeExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeExitActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_HomeExitActionPerformed
-
-    private void RiderSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignUpBtnActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_RiderSignUpBtnActionPerformed
-
-    private void AdminSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSignInBtnActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(13);
-    }//GEN-LAST:event_AdminSignInBtnActionPerformed
-
-    private void HomeSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeSignUpActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_HomeSignUpActionPerformed
-
-    private void RiderPassRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderPassRegActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RiderPassRegActionPerformed
-
-    private void ShowRiderPassSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRiderPassSignUpActionPerformed
-        // TODO add your handling code here:
-        if (ShowRiderPassSignUp.isSelected()) {
-           RiderPassReg.setEchoChar((char)0);
-        }
-        else {
-            RiderPassReg.setEchoChar('*');
-        }
-    }//GEN-LAST:event_ShowRiderPassSignUpActionPerformed
-
-    private void UserSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignInBtnActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(11);
-    }//GEN-LAST:event_UserSignInBtnActionPerformed
-
-    private void RiderSignUpBtnRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignUpBtnRegActionPerformed
-        // TODO add your handling code here:
-        String name1 = RiderFullNameReg.getText();
-        String username1 = RiderUsernameReg.getText();
-        String mobile1 = RiderMobileReg.getText();
-        String vehicle1 = RiderVehicleReg.getText();
-        String address1 = RiderAddressReg.getText();
-        char[] passwordChar = RiderPassReg.getPassword();
-        String password1 = new String(passwordChar);
-        
-        Connection con = getConnection();
-        String query = "INSERT INTO ridersapp(fullname, username, mobile, vehicle, address, password, accept) VALUES(?, ?, ?, ?, ?, ?, ?)";
-
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, name1);
-            ps.setString(2, username1);
-            ps.setString(3, mobile1);
-            ps.setString(4, vehicle1);
-            ps.setString(5, address1);
-            ps.setString(6, password1);
-            ps.setString(7, "no");
-            
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data inserted successfully!");
-            RiderFullNameReg.setText("");
-            RiderUsernameReg.setText("");
-            RiderMobileReg.setText("");
-            RiderVehicleReg.setText("");
-            RiderAddressReg.setText("");
-            RiderPassReg.setText("");
-                  
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_RiderSignUpBtnRegActionPerformed
-
-    private void ShowUserPassSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUserPassSignUpActionPerformed
-        // TODO add your handling code here:
-        if(ShowUserPassSignUp.isSelected()){
-            UserPassReg.setEchoChar((char)0);
-        }
-        else{
-            UserPassReg.setEchoChar('*');
-        }
-    }//GEN-LAST:event_ShowUserPassSignUpActionPerformed
-
-    private void UserSignUpConfirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignUpConfirmBtnActionPerformed
-        // TODO add your handling code here:
-        String name1 = UserFullNameReg.getText();
-        String username1 = UserUsernameReg.getText();
-        char[] passwordChar = UserPassReg.getPassword();
-        String password1 = new String(passwordChar);
-        String mobile1 = UserMobileReg.getText();
-        
-        
-        
-        Connection con = getConnection();
-        String query = "INSERT INTO users(fullname, username, password, phone) VALUES(?, ?, ?, ?)";
-
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, name1);
-            ps.setString(2, username1);
-            ps.setString(3, password1);
-            ps.setString(4, mobile1);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data inserted successfully!");
-            
-            
-            UserFullNameReg.setText("");
-            UserUsernameReg.setText("");
-            UserPassReg.setText("");
-            UserMobileReg.setText("");
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-        
-    }//GEN-LAST:event_UserSignUpConfirmBtnActionPerformed
-
-    private void RiderHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderHistoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RiderHistoryActionPerformed
-
-    private void AcceptRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptRidersActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(8);
-        loadApplications();
-        
-    }//GEN-LAST:event_AcceptRidersActionPerformed
-
-    private void SeeRidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeRidersActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(9);
-        loadApplications2();
-    }//GEN-LAST:event_SeeRidersActionPerformed
-
-    private void SeeUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeUsersActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(10);
-        loadApplications3();
-    }//GEN-LAST:event_SeeUsersActionPerformed
-
-    private void UserPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPassSignInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserPassSignInActionPerformed
-
-    private void ShowUserPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUserPassSignInActionPerformed
-        // TODO add your handling code here:
-        
-        if(ShowUserPassSignIn.isSelected()){
-            UserPassSignIn.setEchoChar((char)0);
-        }
-        else{
-            UserPassSignIn.setEchoChar('*');
-        }
-        
-    }//GEN-LAST:event_ShowUserPassSignInActionPerformed
-
-    private void UserSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserSignInActionPerformed
-        // TODO add your handling code here:
-        
-    String uname = UsernameSignIn.getText();
-    char[] passChar = UserPassSignIn.getPassword();
-    String pass = new String(passChar);
-
+    public void loadApplications4(){
     Connection con = getConnection();
-    String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+    String query = "SELECT * FROM rides";
 
     try{
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, uname);
-        ps.setString(2, pass);
         ResultSet rs = ps.executeQuery();
+        DefaultTableModel model = (DefaultTableModel) jTable4.getModel();
+                model.setRowCount(0);
 
-        if(rs.next()){
-            // Sign in successful
-            JOptionPane.showMessageDialog(null, "Sign in successful!");
-            UsernameSignIn.setText("");
-            UserPassSignIn.setText("");
-            // Add the index for the user panel
-        } else {
-            // Sign in failed
-            JOptionPane.showMessageDialog(null, "Invalid username or password.");
+        Object[] row;
+        while(rs.next()){
+            row = new Object[6]; 
+            row[0] = rs.getString(1); 
+            row[1] = rs.getString(2);
+            row[2] = rs.getString(3); 
+            row[3] = rs.getString(4);
+            
+
+            model.addRow(row);
         }
-    } catch(HeadlessException | SQLException e){
+    } catch(SQLException e){
         JOptionPane.showMessageDialog(null, e);
     }
-
-    }//GEN-LAST:event_UserSignInActionPerformed
-
-    private void RiderSignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignInBtnActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(12);
-    }//GEN-LAST:event_RiderSignInBtnActionPerformed
-
-    private void RiderPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderPassSignInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RiderPassSignInActionPerformed
-
-    private void RiderSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiderSignInActionPerformed
-        // TODO add your handling code here:
+    }
+    
+    public void loadApplications5(){
         
-        String uname = RidernameSignIn.getText();
-        char[] passChar = RiderPassSignIn.getPassword();
-        String pass = new String(passChar);
+    Connection con = getConnection();
+    String query = "SELECT * FROM history";
+    System.out.println(uname);
 
-        Connection con = getConnection();
-        String query = "SELECT * FROM ridersapp WHERE username = ? AND password = ? AND accept = ?";
+    try{
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
+                model.setRowCount(0);
 
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-            ps.setString(3, "yes");
-            ResultSet rs = ps.executeQuery();
+        Object[] row;
+        while(rs.next()){
+            row = new Object[5]; 
+            row[0] = rs.getString(1);
+            row[1] = rs.getString(2);
+            row[2] = rs.getString(3); 
+            row[3] = rs.getString(4);
+            row[4] = rs.getString(5);
+            
 
-            if(rs.next()){
-                // Sign in successful
-                JOptionPane.showMessageDialog(null, "Sign in successful!");
-                RidernameSignIn.setText("");
-                RiderPassSignIn.setText("");
-                // Add the index for the rider panel
-            } else {
-                // Sign in failed
-                JOptionPane.showMessageDialog(null, "Invalid username or password.");
-            }
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
+            model.addRow(row);
         }
+    } catch(SQLException e){
+        JOptionPane.showMessageDialog(null, e);
+    }
+    }
+    
+    
+    public void loadApplications6(){
         
-    }//GEN-LAST:event_RiderSignInActionPerformed
+    Connection con = getConnection();
+    String query = "SELECT * FROM history";
+    System.out.println(uname);
 
-    private void ShowRiderPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRiderPassSignInActionPerformed
-        // TODO add your handling code here:
-        if (ShowRiderPassSignIn.isSelected()) {
-           RiderPassSignIn.setEchoChar((char)0);
+    try{
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
+                model.setRowCount(0);
+
+        Object[] row;
+        while(rs.next()){
+            row = new Object[5]; 
+            row[0] = rs.getString(1);
+            row[1] = rs.getString(2);
+            row[2] = rs.getString(3); 
+            row[3] = rs.getString(4);
+            row[4] = rs.getString(5);
+            
+
+            model.addRow(row);
         }
-        else {
-            RiderPassSignIn.setEchoChar('*');
-        }
-    }//GEN-LAST:event_ShowRiderPassSignInActionPerformed
-
-    private void AdminPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminPassSignInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdminPassSignInActionPerformed
-
-    private void ShowAdminPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAdminPassSignInActionPerformed
-        // TODO add your handling code here:
-        
-        if (ShowAdminPassSignIn.isSelected()) {
-           AdminPassSignIn.setEchoChar((char)0);
-        }
-        else {
-            AdminPassSignIn.setEchoChar('*');
-        }
-        
-    }//GEN-LAST:event_ShowAdminPassSignInActionPerformed
-
-    private void AdminSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminSignInActionPerformed
-        // TODO add your handling code here:
-        
-        String uname = AdminnameSignIn.getText();
-        char[] passChar = AdminPassSignIn.getPassword();
-        String pass = new String(passChar);
-
-        Connection con = getConnection();
-        String query = "SELECT * FROM admins WHERE username = ? AND password = ?";
-
-        try{
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-            ResultSet rs = ps.executeQuery();
-
-            if(rs.next()){
-                // Sign in successful
-                JOptionPane.showMessageDialog(null, "Sign in successful!");
-                AdminnameSignIn.setText("");
-                AdminPassSignIn.setText("");
-                // Add the index for the user panel
-            } else {
-                // Sign in failed
-                JOptionPane.showMessageDialog(null, "Invalid username or password.");
-            }
-        } catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_AdminSignInActionPerformed
-
+    } catch(SQLException e){
+        JOptionPane.showMessageDialog(null, e);
+    }
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -971,6 +1712,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new ShohoJatriUI().setVisible(true);
+            //ShohoJatriUI().jPanel2.setVisible(true);
         });
         
         
@@ -988,7 +1730,6 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AcceptRide;
     private javax.swing.JButton AcceptRiders;
-    private javax.swing.JButton Account;
     private javax.swing.JPasswordField AdminPassSignIn;
     private javax.swing.JButton AdminSignIn;
     private javax.swing.JButton AdminSignInBtn;
@@ -1005,7 +1746,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField RiderPassReg;
     private javax.swing.JPasswordField RiderPassSignIn;
     private javax.swing.JButton RiderSignIn;
-    private javax.swing.JButton RiderSignInBtn;
+    private javax.swing.JButton RiderSignInBtn1;
     private javax.swing.JButton RiderSignUpBtn;
     private javax.swing.JButton RiderSignUpBtnReg;
     private javax.swing.JTextField RiderUsernameReg;
@@ -1023,32 +1764,75 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField UserPassReg;
     private javax.swing.JPasswordField UserPassSignIn;
     private javax.swing.JButton UserSignIn;
-    private javax.swing.JButton UserSignInBtn;
     private javax.swing.JButton UserSignUpBtn;
     private javax.swing.JButton UserSignUpConfirmBtn;
     private javax.swing.JTextField UserUsernameReg;
     private javax.swing.JTextField UsernameSignIn;
+    private javax.swing.JButton acceptRide;
+    private javax.swing.JPanel acceptRiderReq;
+    private javax.swing.JPanel adminPortal;
+    private javax.swing.JPanel adminSignInPage;
+    private javax.swing.JButton back;
+    private javax.swing.JButton back1;
+    private javax.swing.JButton back10;
+    private javax.swing.JButton back11;
+    private javax.swing.JButton back12;
+    private javax.swing.JButton back13;
+    private javax.swing.JButton back14;
+    private javax.swing.JButton back15;
+    private javax.swing.JButton back2;
+    private javax.swing.JButton back3;
+    private javax.swing.JButton back4;
+    private javax.swing.JButton back5;
+    private javax.swing.JButton back6;
+    private javax.swing.JButton back7;
+    private javax.swing.JButton back8;
+    private javax.swing.JButton back9;
+    private javax.swing.JPanel bookRide;
+    private javax.swing.JButton confirmReqBtn;
+    private javax.swing.JComboBox<String> currentLocValues;
+    private javax.swing.JComboBox<String> desLocValues;
+    private javax.swing.JPanel homePage;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JPanel riderHistory;
+    private javax.swing.JPanel riderListPage;
+    private javax.swing.JPanel riderPortal;
+    private javax.swing.JPanel riderSignInPage;
+    private javax.swing.JPanel riderSignUpPage;
+    private javax.swing.JPanel seeAcceptance;
+    private javax.swing.JPanel seeRideReq;
+    private javax.swing.JPanel signIn;
+    private javax.swing.JPanel signUp;
+    private javax.swing.JLabel totalFare;
+    private javax.swing.JPanel userHistory;
+    private javax.swing.JPanel userListPage;
+    private javax.swing.JPanel userPortal;
+    private javax.swing.JButton userSignInBtn;
+    private javax.swing.JPanel userSignInPage;
+    private javax.swing.JPanel userSignUpPage;
     // End of variables declaration//GEN-END:variables
+    
 }
