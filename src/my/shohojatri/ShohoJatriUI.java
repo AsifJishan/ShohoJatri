@@ -299,19 +299,19 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 UserSignUpConfirmBtnActionPerformed(evt);
             }
         });
-        userSignUpPage.add(UserSignUpConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, 40));
+        userSignUpPage.add(UserSignUpConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, 40));
 
         UserFullNameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Full Name"));
-        userSignUpPage.add(UserFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 217, 70));
+        userSignUpPage.add(UserFullNameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 217, 70));
 
         UserMobileReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Mobile No."));
-        userSignUpPage.add(UserMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 217, 70));
+        userSignUpPage.add(UserMobileReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 217, 70));
 
         UserUsernameReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        userSignUpPage.add(UserUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 217, 70));
+        userSignUpPage.add(UserUsernameReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 217, 70));
 
         UserPassReg.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        userSignUpPage.add(UserPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 217, 70));
+        userSignUpPage.add(UserPassReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 217, 70));
 
         ShowUserPassSignUp.setText("Show Password");
         ShowUserPassSignUp.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +319,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 ShowUserPassSignUpActionPerformed(evt);
             }
         });
-        userSignUpPage.add(ShowUserPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
+        userSignUpPage.add(ShowUserPassSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, -1, -1));
 
         back2.setBackground(new java.awt.Color(204, 255, 255));
         back2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
@@ -329,7 +329,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 back2ActionPerformed(evt);
             }
         });
-        userSignUpPage.add(back2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 80, 40));
+        userSignUpPage.add(back2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 80, 40));
 
         jTabbedPane1.addTab("User Sign Up", userSignUpPage);
 
@@ -1016,7 +1016,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Sign in successful!");
                 AdminnameSignIn.setText("");
                 AdminPassSignIn.setText("");
-                // Add the index for the user panel
+                jTabbedPane1.setSelectedIndex(10);
             } else {
                 // Sign in failed
                 JOptionPane.showMessageDialog(null, "Invalid username or password.");
@@ -1025,7 +1025,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
-        jTabbedPane1.setSelectedIndex(10);
+        
     }//GEN-LAST:event_AdminSignInActionPerformed
 
     private void ShowAdminPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAdminPassSignInActionPerformed
@@ -1066,7 +1066,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Sign in successful!");
                 RidernameSignIn.setText("");
                 RiderPassSignIn.setText("");
-                // Add the index for the rider panel
+                jTabbedPane1.setSelectedIndex(9);
             } else {
                 // Sign in failed
                 JOptionPane.showMessageDialog(null, "Invalid username or password.");
@@ -1074,7 +1074,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
         } catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }
-        jTabbedPane1.setSelectedIndex(9);
+        
     }//GEN-LAST:event_RiderSignInActionPerformed
 
     private void ShowRiderPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRiderPassSignInActionPerformed
@@ -1124,7 +1124,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Sign in successful!");
                 UsernameSignIn.setText("");
                 UserPassSignIn.setText("");
-                // Add the index for the user panel
+                jTabbedPane1.setSelectedIndex(8);
             } else {
                 // Sign in failed
                 JOptionPane.showMessageDialog(null, "Invalid username or password.");
@@ -1133,7 +1133,6 @@ public class ShohoJatriUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
-        jTabbedPane1.setSelectedIndex(8);
     }//GEN-LAST:event_UserSignInActionPerformed
 
     private void UserPassSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPassSignInActionPerformed
@@ -1310,26 +1309,42 @@ public class ShohoJatriUI extends javax.swing.JFrame {
 
     private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back2ActionPerformed
         // TODO add your handling code here:
+            UserFullNameReg.setText("");
+            UserUsernameReg.setText("");
+            UserPassReg.setText("");
+            UserMobileReg.setText("");
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_back2ActionPerformed
 
     private void back3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back3ActionPerformed
         // TODO add your handling code here:
+            RiderFullNameReg.setText("");
+            RiderUsernameReg.setText("");
+            RiderMobileReg.setText("");
+            RiderVehicleReg.setText("");
+            RiderAddressReg.setText("");
+            RiderPassReg.setText("");
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_back3ActionPerformed
 
     private void back4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back4ActionPerformed
         // TODO add your handling code here:
+        UsernameSignIn.setText("");
+        UserPassSignIn.setText("");
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_back4ActionPerformed
 
     private void back5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back5ActionPerformed
         // TODO add your handling code here:
+        RidernameSignIn.setText("");
+        RiderPassSignIn.setText("");
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_back5ActionPerformed
 
     private void back6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back6ActionPerformed
         // TODO add your handling code here:
+        AdminnameSignIn.setText("");
+        AdminPassSignIn.setText("");
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_back6ActionPerformed
 
@@ -1508,7 +1523,7 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     public Connection getConnection(){
     Connection con;
     try{
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bismillah", "root", "12345");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bismillah", "root", "InAllahWeTrust114");
         return con;
     } catch(SQLException e){
         return null;
@@ -1627,42 +1642,46 @@ public class ShohoJatriUI extends javax.swing.JFrame {
     
     public void loadApplications5(){
         
-    Connection con = getConnection();
-    String query = "SELECT * FROM history";
-    System.out.println(uname);
-
-    try{
-        PreparedStatement ps = con.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
-        DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
-                model.setRowCount(0);
-
-        Object[] row;
-        while(rs.next()){
-            row = new Object[5]; 
-            row[0] = rs.getString(1);
-            row[1] = rs.getString(2);
-            row[2] = rs.getString(3); 
-            row[3] = rs.getString(4);
-            row[4] = rs.getString(5);
+        Connection con = getConnection();
+        String query = "SELECT * FROM history WHERE passengerName = ?";
+        /*PreparedStatement p = con.prepareStatement(query);
+        p.setString(1, uname);
+        p.executeQuery();
+        System.out.println(uname);*/
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, uname);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) jTable5.getModel();
+            model.setRowCount(0);
             
-
-            model.addRow(row);
+            Object[] row;
+            while(rs.next()){
+                row = new Object[5];
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                
+                
+                model.addRow(row);
+            }
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
         }
-    } catch(SQLException e){
-        JOptionPane.showMessageDialog(null, e);
-    }
     }
     
     
     public void loadApplications6(){
         
     Connection con = getConnection();
-    String query = "SELECT * FROM history";
-    System.out.println(uname);
+    String query = "SELECT * FROM history WHERE riderName = ?";
+    //System.out.println(uname);
 
     try{
         PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, rname);
         ResultSet rs = ps.executeQuery();
         DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
                 model.setRowCount(0);
